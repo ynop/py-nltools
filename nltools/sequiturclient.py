@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 
 #
 # Copyright 2016, 2017 Guenter Bartsch
@@ -24,9 +24,10 @@ import logging
 import tempfile
 import traceback
 
-import misc
+from nltools import misc
 
-from phonetics import xsampa2ipa
+from nltools.phonetics import xsampa2ipa
+
 
 def sequitur_gen_ipa(modelfn, word):
 
@@ -60,14 +61,15 @@ def sequitur_gen_ipa(modelfn, word):
 
                 xs = parts[1]
                 # print 'XS', xs
-           
+
                 ipa = xsampa2ipa(word, xs)
 
     return ipa
 
+
 def sequitur_gen_ipa_multi(modelfn, words):
 
-    ipa_map ={}
+    ipa_map = {}
 
     with tempfile.NamedTemporaryFile() as f:
 
@@ -101,7 +103,7 @@ def sequitur_gen_ipa_multi(modelfn, words):
 
                     xs = parts[1]
                     # print 'XS', xs
-               
+
                     ipa = xsampa2ipa(word, xs)
                     ipa_map[word] = ipa
             except:
@@ -109,4 +111,3 @@ def sequitur_gen_ipa_multi(modelfn, words):
                 logging.error(traceback.format_exc())
 
     return ipa_map
-
