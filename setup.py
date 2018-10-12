@@ -16,7 +16,6 @@ setup(
         'py-marytts',
         'py-picotts',
         'py-espeak-ng',
-        'pocketsphinx',
         'numpy',
         'webrtcvad',
         'setproctitle'
